@@ -12,7 +12,7 @@ class ProgressBar(Presentation):
 
     def __init__(self):
         super().__init__()
-        self.interval = 0.1 # [second]
+        self.interval = 0.2 # [second]
 
         self.active_bars = [ ]
         self.just_finised_bars = [ ]
