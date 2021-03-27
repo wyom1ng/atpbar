@@ -42,6 +42,9 @@ class Presentation:
             self._update_registry()
             self.last_time = time.time()
 
+            self.out.flush()
+            self.err.flush()
+
     def _register_report(self, report):
 
         taskid = report['taskid']
