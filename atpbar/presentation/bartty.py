@@ -43,8 +43,8 @@ class ProgressBar(Presentation):
         self._erase_active_bars()
         out.write(s.rstrip())
         out.write('\n')
-        out.flush()
         self._draw_active_bars()
+        out.flush()
 
     def _erase_active_bars(self):
         nlines = len(self._active_taskids) + len(self._finishing_taskids)
@@ -59,7 +59,6 @@ class ProgressBar(Presentation):
         # '\033[0J' clear from cursor to end of screen
 
         self.out.write(code)
-        self.out.flush()
 
     def _compose_just_finised_bars(self):
         self.just_finised_bars = [
@@ -108,11 +107,9 @@ class ProgressBar(Presentation):
     def _draw_just_finised_bars(self):
         if self.just_finised_bars:
             self.out.write("\n".join(self.just_finised_bars) + "\n")
-            self.out.flush()
 
     def _draw_active_bars(self):
         if self.active_bars:
             self.out.write("\n".join(self.active_bars))
-            self.out.flush()
 
 ##__________________________________________________________________||
