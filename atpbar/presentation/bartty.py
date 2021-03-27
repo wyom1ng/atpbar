@@ -43,7 +43,6 @@ class ProgressBar(Presentation):
         out.write(s.rstrip())
         out.write('\n')
         self._draw_active_bars()
-        out.flush()
 
     def _erase_active_bars(self):
         nlines = len(self._active_taskids) + len(self._finishing_taskids)
