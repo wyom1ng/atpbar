@@ -83,18 +83,18 @@ class ProgressBar(Presentation):
         percent = round(percent * 100, 2)
         # e.g., 71.43
 
-        format = ' {percent:6.2f}% {bar:s} | {done:8d} / {total:8d} |:  {name} '
+        format = ' {percent:6.2f}% {bar:s} | {done:8d} / {total:8d} | '
 
         if "start_time" in report.keys():
             elapsed_str, remaining_str = self._get_time_track(
                 report["start_time"], percent
             )
-            format += " | [{:s} / {:s}]".format(elapsed_str, remaining_str)
+            format += " [{:s} / {:s}] | ".format(elapsed_str, remaining_str)
 
         ret = format.format(
             percent=percent, bar=bar,
-            done=report['done'], total=report['total'],
-            name=report['name'])
+            done=report['done'], total=report['total'])
+        ret += report['name'] + ' '
         # e.g., "  71.43% ::::::::::::::::::::::::::::             |     3981 /     5573 |:  task name "
 
         width = self._get_width()
