@@ -13,7 +13,6 @@ class ProgressBar(Presentation):
     def __init__(self):
         super().__init__()
         self.interval = 0.1 # [second]
-        self.width = self._get_width()
 
         self.active_bars = [ ]
         self.just_finised_bars = [ ]
@@ -99,7 +98,8 @@ class ProgressBar(Presentation):
             name=report['name'])
         # e.g., "  71.43% ::::::::::::::::::::::::::::             |     3981 /     5573 |:  task name "
 
-        ret = ret[:self.width].ljust(self.width, ' ')
+        width = self._get_width()
+        ret = ret[:width].ljust(width, ' ')
         # e.g., "  71.43% ::::::::::::::::::::::::::::             |     3981 /     5573 |:  task na"
 
         return ret
