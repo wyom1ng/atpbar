@@ -138,6 +138,5 @@ class Presentation:
     def _write(self, s, out):
         out.write(s.rstrip())
         out.write('\n')
-        out.flush()
 
 ##__________________________________________________________________||
